@@ -79,7 +79,11 @@ class AdController extends Controller
 
         return response()->json([
             'error' => false,
+<<<<<<< HEAD
             'message'  => "The offer with the id $offers->id has successfully been deleted.",
+=======
+            'message'  => "The Offer with the id $offers->id has successfully been deleted.",
+>>>>>>> 598d9f99ef0334f50d5ad3ac48904aa95522d041
         ], 200);
     }
 }
