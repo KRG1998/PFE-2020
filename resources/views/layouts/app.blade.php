@@ -64,7 +64,7 @@
                         <!-- Authentication Links -->
                         
                             <li class="nav-item">
-                                <a class="nav-link btn btn-primary mr-2 text-white" href="{{ route('login') }}">{{ __('Login') }} <i class="fas fa-sign-in-alt"></i></a>
+                                <a class="nav-link btn btn-info mr-2 text-white" href="{{ route('login') }}">{{ __('Login') }} <i class="fas fa-sign-in-alt"></i></a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">

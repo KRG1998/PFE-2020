@@ -1,183 +1,75 @@
 <template>
-  <div class>
-    <div class="card bg-light w-100">
-      <div class="row no-gutters w-100">
-        <div class="col-auto">
-          <img
-            :src="'../storage/clients_photos/'+client.photo"
-            style="height:200px;width:200px"
-            class="img-thumbnail rounded-circle ml-5 mt-5 mb-2"
-            alt
-          />
-        </div>
-        <div class="col-auto mt-4">
-          <router-link to class="nav-link">
-            <i class="fas fa-pen-square"></i>
-          </router-link>
-        </div>
-        <div class="col-auto mt-5 ml-4 w-50">
-          <h4 class="text-capitalize mt-4 text-secondary">{{user.first_name}} {{user.last_name}}</h4>
-          <p class="font-weight-light text-secondary">{{client.description}}</p>
-          <div class="row">
-            <div class="col font-weight-bold text-secondary">
-              <span class="text-primary mr-2">
-                <i class="fas fa-envelope"></i>
-              </span>
-              {{user.email}}
-            </div>
-            <div class="col font-weight-bold text-secondary">
-              <span class="text-primary mr-2">
-                <i class="fas fa-mobile-alt"></i>
-              </span>
-              {{client.phone}}
-            </div>
+  <main>
+   <div class="row">
+      <div class="col text-center ">
+     <div class="col m-5">
+        <CompleteClientProfile v-if="client == 0"  :user="user"/>
+        <EditClientProfile v-else :user="user" :id="client.id"/>
+     </div>
+    </div>
+
+    <div class="col">
+      <div class="row">
+        <div class="col m-5 main-section border-0 shadow text-center rounded">
+          <div class="row border-0">
+            <div class="col-lg-12 col-sm-12 col-12 profile-header bg-light rounded"></div>
           </div>
-          <div class="row">
-            <div class="col font-weight-bold text-secondary">
-              <span class="text-primary mr-2">
-                <i class="fas fa-home"></i>
-              </span>
-              {{client.address}}
-            </div>
-          </div>
-        </div>
-        <div class="col mt-5 mr-4">
-          <div class="float-right">
-            <router-link
-              to="/complete-profile"
-              v-if="client == 0"
-              v-on:click="showModal"
-              class="btn btn-primary text-white"
-            >
-              <i class="far fa-edit"></i> Complete profile
-            </router-link>
-            <router-link
-              :to="{name: 'EditClientProfile', params: { id: client.id }}"
+          <div class="row user-detail">
+            <div class="col-lg-12 col-sm-12 col-12">
+              <img v-if="client.photo"
+                :src="'../storage/clients_photos/'+client.photo"
+                class="rounded-circle img-thumbnail"
+              />
+           <img
               v-else
-              class="btn btn-primary text-white"
-            >
-              <i class="far fa-edit"></i> Edit profile
-            </router-link>
-          </div>
-          <br />
-        </div>
-      </div>
-      <div class="card-footer bg-white">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-3 col-md-6">
-              <div class="card bg-primary shadow-sm border-0 text-white ">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-1">
-                      <h4>
-                        <i class="fab fa-creative-commons-by"></i>
-                      </h4>
-                    </div>
-                    <div class="col-8">
-                      <h5>Assigned Missions</h5>
-                    </div>
-                    <div class="col-2">
-                      <h4>{{assigned}}</h4>
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card shadow-sm bg-warning text-white  border-0">
-                <div class="row">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-1">
-                        <h4>
-                          <i class="fas fa-spinner"></i>
-                        </h4>
-                      </div>
-                      <div class="col-8">
-                        <h5>Missions in progress</h5>
-                      </div>
-                      <div class="col-2">
-                        <h4>{{inprogress}}</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card shadow-sm bg-success  border-0 text-white ">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-1">
-                      <h4>
-                        <i class="fas fa-clipboard-check"></i>
-                      </h4>
-                    </div>
-                    <div class="col-8">
-                      <h5>Missions Completed</h5>
-                    </div>
-                    <div class="col-2">
-                      <h4>{{completed}}</h4>
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card shadow-sm bg-danger borser-0 text-white ">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-1">
-                      <h4>
-                        <i class="fas fa-ban"></i>
-                      </h4>
-                    </div>
-                    <div class="col-8">
-                      <h5>Cancelled Missions</h5>
-                    </div>
-                    <div class="col-2">
-                      <h4>{{cancelled}}</h4>
-                    </div>
-                  </div>
-                </div>
+              class="rounded-circle img-thumbnail"
+              src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+              alt="profile photo"
+            /> 
+              <h5 class="text-capitalize">{{user.first_name}} {{user.last_name}}</h5>
               
+              <div class="row">
+                <div class="col" v-if="client.address">
+                  <span class="text-secondary mr-2">
+                  <i class="fas fa-map-marker-alt"></i>
+                </span>
+                {{client.address}}
+                </div>
               </div>
+              <hr />
+              <div class="row">
+                <div class="col text-center">
+                  <span class="text-secondary mr-2">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  {{user.email}}
+                </div>
+                <div class="col" v-if="client.phone" >
+                  <span class="text-secondary mr-2">
+                    <i class="fas fa-mobile-alt"></i>
+                  </span>
+                  {{client.phone}}
+                </div>
+              </div>
+              <hr />
+              <span>{{client.description}}</span>
             </div>
           </div>
+         
         </div>
       </div>
     </div>
-    <div class="row w-100 mt-3">
-      <div class="col-3 w-100">
-        <div class="card w-100">
-          <div class="card-header font-weight-bold text-primary">
-            <div class="row">
-              <div class="col">Something</div>
-              <div class="col">
-                <span class="float-right"></span>
-                <i class="fas fa-pen"></i>
-              </div>
-            </div>
-          </div>
-          <div class="card-body"></div>
-        </div>
-      </div>
-      <div class="col w-100">
-        <div class="card h-100 w-100">
-          <card class="body">
-            
-          </card>
-        </div>
-      </div>
-    </div>
-  </div>
+   </div>
+  </main>
 </template>
 <script>
+import CompleteClientProfile from './CompleteClientProfile'
+import EditClientProfile from './EditClientProfile'
 export default {
+  components:{
+    CompleteClientProfile,
+    EditClientProfile
+  },
   props: ["user"],
   data() {
     return {
@@ -210,7 +102,41 @@ export default {
       } catch (e) {
         // handle the authentication error here
       }
-    }
+    },
+    
   }
 };
 </script>
+<style scoped>
+.main-section {
+  border: 1px solid #138496;
+  background-color: #fff;
+  width:100%;
+}
+.profile-header {
+  background-image: url("../../assets/images/bgprofile.png");
+  background-size: cover;
+  background-position: center;
+
+  height: 150px;
+}
+.user-detail {
+  margin: -50px 0px 30px 0px;
+}
+.user-detail img {
+  height: 100px;
+  width: 100px;
+}
+.user-detail h5 {
+  margin: 15px 0px 5px 0px;
+}
+.user-social-detail {
+  padding: 15px 0px;
+  
+}
+.user-social-detail a i {
+  
+  font-size: 23px;
+  padding: 0px 5px;
+}
+</style>

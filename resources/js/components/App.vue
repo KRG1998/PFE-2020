@@ -22,7 +22,7 @@
             aria-describedby="basic-addon2"
           />
           <div class="input-group-append">
-            <button class="btn bg-primary text-white" type="button">
+            <button class="btn bg-info text-white" type="button">
               <i class="fas fa-search"></i>
             </button>
           </div>

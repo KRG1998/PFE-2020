@@ -19,7 +19,6 @@
               <div class="carousel-item">
                 <img class="d-block w-100" src="../assets/images/slide-3.png" alt="Third slide" />
               </div>
-              
             </div>
             <a
               class="carousel-control-prev"
@@ -45,7 +44,12 @@
         <div class="col-lg-5">
           <h1 class="font-weight-light">Business Name or Tagline</h1>
           <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-          <router-link to="/login" v-on:click="reloadPage()" class="btn btn-primary" href="#">Join us!</router-link>
+          <router-link
+            to="/login"
+            v-on:click="reloadPage()"
+            class="btn btn-info text-white"
+            href="#"
+          >Join us!</router-link>
         </div>
       </div>
       <div class="row bg-secondary text-white rounded m-5 p-3">
@@ -56,33 +60,105 @@
           >Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
         </div>
       </div>
-      <div class="p-3 rounded">
+      <div class="container text-center">
         <div class="row w-100">
           <div class="col w-25">
-            <img class="w-25" src="../assets/images/categories/farm.png" alt />
+            <div class="row">
+              <div class="col text-center ">
+                <img class="w-25" src="../assets/images/categories/farm.png" alt />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="m-2 text-secondary font-weight-bold">Gardening</div>
+              </div>
+            </div>
           </div>
           <div class="col w-25">
-            <img class="w-25" src="../assets/images/categories/diy.png" alt />
+            <div class="row">
+              <div class="col text-center">
+                <img class="w-25" src="../assets/images/categories/diy.png" alt />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="m-2 text-secondary font-weight-bold">Bricolage</div>
+              </div>
+            </div>
           </div>
           <div class="col w-25">
-            <img class="w-25" src="../assets/images/categories/plumber.png" alt />
+            <div class="row">
+              <div class="col text-center">
+                <img class="w-25" src="../assets/images/categories/plumber.png" alt />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="m-2 text-secondary font-weight-bold">Plombing</div>
+              </div>
+            </div>
           </div>
           <div class="col w-25">
-            <img class="w-25" src="../assets/images/categories/car.png" alt />
+            <div class="row">
+              <div class="col text-center">
+                <img class="w-25" src="../assets/images/categories/car.png" alt />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="m-2 text-secondary font-weight-bold">Carpooling</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row w-100 mt-5">
+        <div class="row w-100">
           <div class="col w-25">
-            <img class="w-25" src="../assets/images/categories/handyman.png" alt />
+            <div class="row">
+              <div class="col text-center">
+                <img class="w-25" src="../assets/images/categories/handyman.png" alt />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="m-2 text-secondary font-weight-bold">Electricity</div>
+              </div>
+            </div>
           </div>
           <div class="col w-25">
-            <img class="w-25" src="../assets/images/categories/fork.png" alt />
+            <div class="row">
+              <div class="col text-center">
+                <img class="w-25" src="../assets/images/categories/fork.png" alt />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="m-2 text-secondary font-weight-bold">Restoration</div>
+              </div>
+            </div>
           </div>
           <div class="col w-25">
-            <img class="w-25" src="../assets/images/categories/outdoor.png" alt />
+            <div class="row">
+              <div class="col text-center">
+                <img class="w-25" src="../assets/images/categories/outdoor.png" alt />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="m-2 text-secondary font-weight-bold">Household</div>
+              </div>
+            </div>
           </div>
           <div class="col w-25">
-            <img class="w-25" src="../assets/images/categories/feeder.png" alt />
+            <div class="row">
+              <div class="col text-center">
+                <img class="w-25" src="../assets/images/categories/feeder.png" alt />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="m-2 text-secondary font-weight-bold">Daycare</div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -110,7 +186,7 @@
                 </select>
               </div>
               <div class="col">
-                <button class="btn btn-primary">
+                <button class="btn btn-info text-white">
                   Search
                   <i class="fas fa-search"></i>
                 </button>
@@ -134,7 +210,7 @@
                 <div class="col-auto">
                   <img
                     :src="'../storage/ads_photos/'+ad.photos"
-                    style="height:200px;width:200px"
+                    style="height:150px;width:150px"
                     class="img-fluid"
                     alt
                   />
@@ -146,31 +222,28 @@
                       <p class="font-weight-light ml-2 text-success">{{ad.category}}</p>
                     </div>
                     <div class="row">
-                      <h6 class="text-primary">
+                      <h6 class="text-info">
                         <i class="fas fa-map-marker-alt"></i>
                       </h6>
                       <h6 class="ml-3 font-weight-light text-secondary">{{ad.address}}</h6>
                     </div>
                     <div class="row">
-                      <h6 class="text-primary">
+                      <h6 class="text-info">
                         <i class="far fa-calendar-alt"></i>
                       </h6>
                       <h6 class="ml-3 font-weight-light text-secondary">{{ad.date}}</h6>
                     </div>
                     <div class="row">
-                      <h6 class="text-primary">
+                      <h6 class="text-info">
                         <i class="fas fa-users"></i>
                       </h6>
                       <h6 class="ml-3 font-weight-light text-secondary">{{ad.jobbers_number}}</h6>
                     </div>
                     <div class="row">
-                      <h6 class="text-primary">
+                      <h6 class="text-info">
                         <i class="fas fa-coins"></i>
                       </h6>
                       <h6 class="ml-3 font-weight-light text-secondary">{{ad.amount}}</h6>
-                    </div>
-                    <div class="row" >
-                      <button v-on:click="showApplyModal(ad.id)" class="btn btn-primary">Apply</button>
                     </div>
                   </div>
                 </div>
@@ -197,10 +270,10 @@
     </div>
     <b-modal ref="detailsModal" hide-footer hide-header>
       <AdDetails :id="adId"></AdDetails>
-      <div class="row no-gutters w-100" >
+      <div class="row no-gutters w-100">
         <div class="col">
           <div class="float-right">
-            <button class="btn btn-primary" v-on:click="showApplyModal(adId)">Apply</button>
+            <button class="btn btn-info text-white" v-on:click="showApplyModal(adId)">Apply</button>
           </div>
         </div>
       </div>
@@ -257,7 +330,7 @@ export default {
     hideApplyModal() {
       this.$refs["applyModal"].hide();
     },
-    reloadPage(){
+    reloadPage() {
       //location.reload();
       window.location.reload();
     }
