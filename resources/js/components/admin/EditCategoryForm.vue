@@ -1,9 +1,16 @@
 <template>
   <main>
+    <div class="col text-center">
+      <div class="row">
+    <div class="col ml-5 text-secondary">
+      <i class="fas fa-pen-square"></i>
+    </div>
+    </div>
     <div class="row text-secondary pr-2">
-      <div class="col text-center">
-        <span class="p-2"><i class="fas fa-th fa-3x"></i></span> <i class="fas fa-pen-square"></i>
+      <div class="col">
+        <span class="p-2"><i class="fas fa-th fa-3x"></i></span> 
       </div>
+    </div>
     </div>
     <hr>
     <form @submit.prevent="updateCategory" enctype="multipart/form-data">
