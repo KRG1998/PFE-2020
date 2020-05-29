@@ -6,7 +6,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import { BootstrapVue} from 'bootstrap-vue'
 
 
-Vue.use(BootstrapVue)
+Vue.use(BootstrapVue);
 
 
 import 'sweetalert2/dist/sweetalert2.min.css';

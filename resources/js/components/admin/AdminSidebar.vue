@@ -1,84 +1,134 @@
 <template>
-  <div id="layoutSidenav">
-    <div id="layoutSidenav_nav">
-      <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
-        <div class="sb-sidenav-menu">
-          <div class="nav">
-            <div class="sb-sidenav-menu-heading">Profile</div>
-            <a class="nav-link text-secondary" href="index.html">
-              <img
-                style="height: 100px;display:block;margin-left: auto;margin-right: auto"
-                class="rounded-circle border-info img-thumbnail"
-                src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                alt="profile photo"
-              />
-            </a>
-            <span style="text-align:center" class="text-center">
-              <router-link to="/client/profile" class="nav-link" href="#">Name</router-link>
-            </span>
-            <div class="sb-sidenav-menu-heading">Core</div>
-              <a class="nav-link" href="index.html">
-              <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-              Dashboard</a>
-            <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                            ></a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="layout-static.html">Static Navigation</a><a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a></nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                            ></a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth"
-                                        >Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                                    ></a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="login.html">Login</a><a class="nav-link" href="register.html">Register</a><a class="nav-link" href="password.html">Forgot Password</a></nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError"
-                                        >Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                                    ></a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="401.html">401 Page</a><a class="nav-link" href="404.html">404 Page</a><a class="nav-link" href="500.html">500 Page</a></nav>
-                                    </div>
-                                </nav>
-                            </div>
-            
-           
-          </div>
-        </div>
-      </nav>
-    </div>
-    <div id="layoutSidenav_content">
-      <main style="margin:0px;padding:0px">
-        <router-view></router-view>
-      </main>
-      <footer class="py-4 bg-light mt-auto">
-        <div class="container-fluid">
-          <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; Your Website 2019</div>
-            <div>
-              <a href="#">Privacy Policy</a>
-              &middot;
-              <a href="#">Terms &amp; Conditions</a>
+  <div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-light border-right bg-white" id="sidenavAccordion">
+      <div class="sb-sidenav-menu">
+        <div class="nav">
+          <div class="sb-sidenav-menu-heading">Profile</div>
+          <router-link to="/admin/profile" class="nav-link text-secondary">
+            <img
+              style="height: 70px;width:70px;display:block;margin-left: auto;margin-right:auto"
+              class="rounded-circle border-info img-thumbnail"
+              :src="'../storage/admins_photos/'+admin.photo"
+              v-if="exist==1"
+              alt="profile photo"
+            />
+            <img
+              v-else
+              style="height: 70px;width:70px;display:block;margin-left: auto;margin-right:auto"
+              class="rounded-circle border-info img-thumbnail"
+              src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+              alt="profile photo"
+            />
+          </router-link>
+          <div class="row w-100">
+            <div class="col">
+
+              <span class="text-center text-secondary " style="display:block;margin-left: auto;margin-right: auto">
+                Welcome, 
+                <router-link to="/admin/profile" class="text-info" style="text-decoration:none;">
+                  <h6 class="text-capitalize">{{user.first_name}} {{user.last_name}}</h6>
+                </router-link>
+              </span>
             </div>
           </div>
+          <div class="ml-2 mt-4">
+          <router-link to="/" class="nav-link " >
+            <div class="sb-nav-link-icon text-info ">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>Dashboard
+          </router-link>
+          <router-link
+            to="/ads"
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseLayouts"
+            aria-expanded="false"
+            aria-controls="collapseLayouts"
+          >
+            <div class="sb-nav-link-icon text-info">
+              <i class="fas fa-users"></i>
+            </div>Users
+          </router-link>
+          <router-link to="/" class="nav-link" href="index.html">
+            <div class="sb-nav-link-icon">
+              <span class="text-info">
+                <i class="fas fa-credit-card"></i>
+              </span>
+            </div>Subscriptions
+          </router-link>
+          <router-link to="/categories" class="nav-link" href="index.html">
+            <div class="sb-nav-link-icon">
+              <span class="text-info">
+                <i class="fas fa-th"></i>
+              </span>
+            </div>Categories
+          </router-link>
+           <router-link to="/" class="nav-link" href="index.html">
+            <div class="sb-nav-link-icon">
+              <span class="text-info">
+                <i class="fas fa-ad"></i>
+              </span>
+            </div>Ads
+          </router-link>
+           <router-link to="/" class="nav-link" href="index.html">
+            <div class="sb-nav-link-icon">
+              <span class="text-info">
+                <i class="fas fa-hand-holding"></i>
+              </span>
+            </div>Offers
+          </router-link>
+          <router-link to="/" class="nav-link" href="index.html">
+            <div class="sb-nav-link-icon">
+              <span class="text-info">
+                <i class="fas fa-clipboard-check"></i>
+              </span>
+            </div>Evaluations
+          </router-link>
+          <router-link to="/" class="nav-link" href="index.html">
+            <div class="sb-nav-link-icon">
+              <span class="text-info">
+                <i class="fas fa-exclamation-triangle"></i>
+              </span>
+            </div>Litigations
+          </router-link>
+          </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </nav>
   </div>
 </template>
 <script>
 export default {
-    name: 'AdminSidebar',
-}
+  props: ["user"],
+  name: "AdminSidebar",
+  data() {
+    return {
+      exist: 0,
+      admin: {}
+    };
+  },
+  created() {
+    this.getAdmin();
+    //console.log(this.admin)
+  },
+  methods: {
+    async getAdmin() {
+      try {
+        const response = await axios.get("/api/admins");
+        this.admins = response.data.data;
+        //console.log(this.admins)
+        for (let i = 0; i < this.admins.length; i++) {
+          if (this.admins[i].user_id == this.user.id) {
+            this.admin = this.admins[i];
+            this.exist = 1;
+            //console.log(this.admin)
+          }
+        }
+      } catch (e) {
+        // handle the authentication error here
+      }
+    }
+  }
+};
 </script>

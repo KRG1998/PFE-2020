@@ -45,3 +45,26 @@ Route::post('/offers', 'OfferController@store');
 Route::delete('/offers/{id}', 'OfferController@delete');
 Route::put('/offers/{id}', 'OfferController@update');
 
+Route::apiResource('admins', 'AdminController');
+
+Route::get('/admins', 'AdminController@index');
+Route::get('/admins/{id}', 'AdminController@show');
+Route::post('/admins', 'AdminController@store');
+Route::delete('/admins/{id}', 'AdminController@delete');
+Route::put('/admins/{id}', 'AdminController@update');
+
+Route::apiResource('categoris', 'CategoryController');
+
+Route::get('/categories', 'CategoryController@index');
+Route::get('/categories/{id}', 'CategoryController@show');
+Route::post('/categories', 'CategoryController@store');
+Route::delete('/categories/{id}', 'CategoryController@delete');
+Route::put('/categories/{id}', 'CategoryController@update');
+
+Route::apiResource('subcategoris', 'CategoryController');
+
+Route::get('/subcategories', 'SubcategoryController@index');
+Route::get('/subcategories/{id}', 'SubcategoryController@show');
+Route::post('/subcategories', 'SubcategoryController@store');
+Route::delete('/subcategories/{id}', 'SubcategoryController@delete');
+Route::put('/subcategories/{id}', 'SubcategoryController@update');

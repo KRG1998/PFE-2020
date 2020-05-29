@@ -86,6 +86,7 @@
                                     <option value="">You are ...</option>
                                     <option value="client">Client</option>
                                     <option value="jobber">Jobber</option>
+                                    <option value="admin">Admin</option>
                                   <!--  <option value="admin">Admin</option> !-->
                                 </select>
                                 @error('role')

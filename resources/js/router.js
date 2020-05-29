@@ -11,8 +11,9 @@ import CompleteClientProfile from './components/client/CompleteClientProfile'
 import EditClientProfile from './components/client/EditClientProfile'
 import Ads from './components/client/Ads'
 import CompleteJobberProfile from './components/jobber/CompleteJobberProfile'
-
-
+import ClientDashboard from './components/client/ClientDashboard'
+import AdminProfile from './components/admin/AdminProfile'
+import Categories from './components/admin/categories'
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -28,7 +29,9 @@ export default new VueRouter({
         { path: '/edit-profile', component:  EditClientProfile, name: 'EditClientProfile' },
         { path: '/ads', component:  Ads },
         { path: 'jobber/complete-profile', component:  CompleteJobberProfile },
-
+        { path: '/client/dashboard' , component: ClientDashboard},
+        { path: '/admin/profile', component:  AdminProfile, name: 'AdminProfile' },
+        { path: '/categories', component:  Categories, name: 'Categories' }
 
     ],
     mode: 'history'

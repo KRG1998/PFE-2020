@@ -1,6 +1,6 @@
 <?php
-
-Auth::routes();
+ Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/logout-manual', function () {
     request()->session()->invalidate();

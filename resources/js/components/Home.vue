@@ -286,7 +286,7 @@
 </template>
 
 <script>
-import AdDetails from "./AsDetails";
+import AdDetails from "./AdDetails";
 import ApplyForm from "./jobber/ApplyForm";
 export default {
   components: {
