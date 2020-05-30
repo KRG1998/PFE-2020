@@ -14,6 +14,7 @@ import CompleteJobberProfile from './components/jobber/CompleteJobberProfile'
 import ClientDashboard from './components/client/ClientDashboard'
 import AdminProfile from './components/admin/AdminProfile'
 import Categories from './components/admin/categories'
+import Subscriptions from './components/admin/Subscriptions'
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -31,7 +32,8 @@ export default new VueRouter({
         { path: 'jobber/complete-profile', component:  CompleteJobberProfile },
         { path: '/client/dashboard' , component: ClientDashboard},
         { path: '/admin/profile', component:  AdminProfile, name: 'AdminProfile' },
-        { path: '/categories', component:  Categories, name: 'Categories' }
+        { path: '/categories', component:  Categories, name: 'Categories' },
+        { path: '/subscriptions', component:  Subscriptions, name: 'Subscriptions' }
 
     ],
     mode: 'history'

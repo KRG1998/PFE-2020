@@ -61,10 +61,19 @@ Route::post('/categories', 'CategoryController@store');
 Route::delete('/categories/{id}', 'CategoryController@delete');
 Route::put('/categories/{id}', 'CategoryController@update');
 
-Route::apiResource('subcategoris', 'CategoryController');
+Route::apiResource('subcategoris', 'SubcategoryController');
 
 Route::get('/subcategories', 'SubcategoryController@index');
 Route::get('/subcategories/{id}', 'SubcategoryController@show');
 Route::post('/subcategories', 'SubcategoryController@store');
 Route::delete('/subcategories/{id}', 'SubcategoryController@delete');
 Route::put('/subcategories/{id}', 'SubcategoryController@update');
+
+
+Route::apiResource('subscriptions', 'SubscriptionController');
+
+Route::get('/subscriptions', 'SubscriptionController@index');
+Route::get('/subscriptions/{id}', 'SubscriptionController@show');
+Route::post('/subscriptions', 'SubscriptionController@store');
+Route::delete('/subscriptions/{id}', 'SubscriptionController@destroy');
+Route::put('/subscriptions/{id}', 'SubscriptionController@update');

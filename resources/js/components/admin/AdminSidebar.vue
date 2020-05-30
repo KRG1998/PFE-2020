@@ -50,7 +50,7 @@
               <i class="fas fa-users"></i>
             </div>Users
           </router-link>
-          <router-link to="/" class="nav-link" href="index.html">
+          <router-link to="/subscriptions" class="nav-link" href="index.html">
             <div class="sb-nav-link-icon">
               <span class="text-info">
                 <i class="fas fa-credit-card"></i>
